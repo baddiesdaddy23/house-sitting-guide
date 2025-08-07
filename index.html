@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Guide to Surviving with Aries, Anubis & Baddie</title>
+    <style>
+        :root {
+            --aries-color: #e07a5f;
+            --anubis-color: #3d405b;
+            --baddie-color: #9b5de5;
+            --light-bg: #f4f1de;
+            --dark-text: #2b2d42;
+            --light-text: #f8f9fa;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding-bottom: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--aries-color), var(--anubis-color), var(--baddie-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .pet-intro {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem auto;
+            max-width: 1000px;
+            flex-wrap: wrap;
+        }
+
+        .pet-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            padding: 1.5rem;
+            width: 250px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pet-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+
+        .aries-card::after {
+            background-color: var(--aries-color);
+        }
+
+        .anubis-card::after {
+            background-color: var(--anubis-color);
+        }
+
+        .baddie-card::after {
+            background-color: var(--baddie-color);
+        }
+
+        .pet-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pet-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .pet-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            padding: 1.5rem;
+            background: white;
+            box-shadow: var(--card-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .nav-btn.active {
+            background: var(--anubis-color);
+            color: white;
+            border-color: var(--anubis-color);
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--anubis-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--aries-color);
+            border-radius: 2px;
+        }
+
+        .command-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .command-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--aries-color);
+        }
+
+        .command-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .command-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--anubis-color);
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .schedule-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+        }
+
+        .feeding-card::before {
+            background-color: var(--aries-color);
+        }
+
+        .potty-card::before {
+            background-color: var(--anubis-color);
+        }
+
+        .rules-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            margin: 1.5rem 0;
+            border-top: 3px solid var(--baddie-color);
+        }
+
+        .rules-card h3 {
+            margin-bottom: 1rem;
+            color: var(--baddie-color);
+        }
+
+        .tip-box {
+            background: #e9f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: #fdecea;
+            border-left: 4px solid #f44336;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .secret-section {
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .secret-section::before {
+            content: "TOP SECRET";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #e94560;
+            color: white;
+            padding: 0.5rem 2rem;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .pet-intro {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>The Ultimate Guide to Surviving with Aries, Anubis & Baddie</h1>
+            <p class="subtitle">Your comprehensive care manual for our furry family members. Everything you need to know in one place!</p>
+        </div>
+    </header>
+
+    <div class="pet-intro">
+        <div class="pet-card aries-card">
+            <div class="pet-icon">🐕</div>
+            <div class="pet-name">Aries</div>
+            <div class="pet-description">Copper fur | Energetic | Food lover | Oblivious to personal space</div>
+        </div>
+        
+        <div class="pet-card anubis-card">
+            <div class="pet-icon">🐕</div>
+            <div class="pet-name">Anubis</div>
+            <div class="pet-description">Black fur | Dramatic | Cuddler | Litter box enthusiast</div>
+        </div>
+        
+        <div class="pet-card baddie-card">
+            <div class="pet-icon">🐈</div>
+            <div class="pet-name">Baddie</div>
+            <div class="pet-description">Independent cat | Rule breaker | SWAT team trigger</div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn active" data-section="commands">📢 Commands</button>
+        <button class="nav-btn" data-section="feeding">🍽️ Feeding</button>
+        <button class="nav-btn" data-section="potty">🚽 Potty Protocol</button>
+        <button class="nav-btn" data-section="walking">🦮 Walking & Leashes</button>
+        <button class="nav-btn" data-section="behavior">🐕 Behavior</button>
+        <button class="nav-btn" data-section="bedtime">😴 Bedtime Rules</button>
+        <button class="nav-btn" data-section="house">🏠 House Rules</button>
+        <button class="nav-btn" data-section="baddie">🐾 Baddie's Care</button>
+        <button class="nav-btn" data-section="secret">🔒 Top Secret</button>
+    </div>
+
+    <div class="content-container">
+        <!-- Commands Section -->
+        <section id="commands" class="content-section active">
+            <h2>Dog Commands</h2>
+            <p>Pro tip: Say their name before the command for best results (e.g., "Aries, come"). Snapping your fingers when giving commands helps get their attention.</p>
+            
+            <div class="command-grid">
+                <div class="command-card">
+                    <div class="command-title">Sit / Stay / Come</div>
+                    <div>Classic obedience commands</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Leave It</div>
+                    <div>When they try to sniff or eat something they shouldn't</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Walk</div>
+                    <div>Get them to slow down/stop running</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Go Potty</div>
+                    <div>Use when they're sniffing a spot</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Cross</div>
+                    <div>Cross at crosswalk (makes them run - be ready with "walk")</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Out</div>
+                    <div>Kick them out of a room (Spanish: "Vete!")</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Get Her!</div>
+                    <div>Triggers them to chase Baddie</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Thank You</div>
+                    <div>Makes them surrender what's in their mouth</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Excuse Me</div>
+                    <div>Makes them move out of the way</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">Kennel</div>
+                    <div>Sends them to their kennel</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-title">No</div>
+                    <div>Can stand alone or be followed by unwanted behavior</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feeding Section -->
+        <section id="feeding" class="content-section">
+            <h2>Feeding Schedule</h2>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card feeding-card">
+                    <h3>🐕 For the Dogs</h3>
+                    <p><strong>Schedule:</strong> Twice daily - Morning (when you wake up) and Evening (after work)</p>
+                    <p><strong>Portion:</strong> Two scoops each</p>
+                    <p><strong>Note:</strong> Anubis usually lets Aries eat first - no need to intervene</p>
+                    
+                    <div class="tip-box">
+                        <p>We don't rush them; leave the food out and they'll eat when hungry. It's okay if you need to leave before they finish!</p>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>🐈 For Baddie</h3>
+                    <p><strong>Schedule:</strong> Twice daily (can give larger breakfast to last the day)</p>
+                    <p><strong>Location:</strong> Food is in the pantry next to the boys' food</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Potty Protocol Section -->
+        <section id="potty" class="content-section">
+            <h2>Potty Protocol</h2>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h3>⏰ When to Take Them</h3>
+                    <ul>
+                        <li>Morning (before breakfast)</li>
+                        <li>After work</li>
+                        <li>Right before bed</li>
+                    </ul>
+                    <p><em>Minimum 3 times daily</em></p>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>📍 Where to Go</h3>
+                    <p>Take elevator to 1st floor → exit doors to your right → turn right on sidewalk → cross the street</p>
+                    
+                    <div class="warning-box">
+                        <p><strong>WARNING:</strong> They will try to dart into traffic! Be alert!</p>
+                        <p>If unsafe, any patch of grass will do - but Anubis might be stubborn and not go.</p>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>🦺 Getting Ready</h3>
+                    <p><strong>Harness is mandatory!</strong> They don't have collars.</p>
+                    <ul>
+                        <li>Aries: Black harness (opposite of copper fur)</li>
+                        <li>Anubis: Tan harness (opposite of black fur)</li>
+                    </ul>
+                    <p>QR codes on vests contain their info.</p>
+                    
+                    <div class="tip-box">
+                        <p>Aries is easy to harness. Anubis is dramatic and flops on his back (cute but mysterious).</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <p><strong>DO NOT</strong> let them leave without harness + leash!</p>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>⏱️ How Long to Wait</h3>
+                    <p><strong>Maximum:</strong> 15 minutes</p>
+                    <p>If they don't go, bring them inside and try again with only the dog that didn't go after 10 minutes. If not possible, try on next scheduled potty time.</p>
+                    <div class="tip-box">
+                        <p>We're still teaching them this schedule - just do your best!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Walking & Leashes Section -->
+        <section id="walking" class="content-section">
+            <h2>Walking & Leash Tips</h2>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h3>🦮 Leashes</h3>
+                    <p>Both leashes work the same: lockable and extendable.</p>
+                    <p>Press down the button to lock the length.</p>
+                    <p>Sometimes they need reminding to go - saying "Go Potty" usually works.</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>🚦 Leash Pulling/Tugging</h3>
+                    <p>Most tugging happens:</p>
+                    <ul>
+                        <li>Right after leaving</li>
+                        <li>Exiting elevators</li>
+                        <li>First steps outside</li>
+                        <li>When they see other dogs</li>
+                        <li>When someone walks by</li>
+                    </ul>
+                    
+                    <p><strong>How to handle:</strong></p>
+                    <ul>
+                        <li>Use firm voice: "Sit" or "Stop"</li>
+                        <li>If that fails: Beep + "No pulling"</li>
+                        <li>Always correct every pull for consistency</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Behavior Section -->
+        <section id="behavior" class="content-section">
+            <h2>Behavior Around Other Dogs</h2>
+            
+            <div class="rules-card">
+                <h3>Aries</h3>
+                <p>Gets tense and might try to square up. Oblivious to personal space.</p>
+            </div>
+            
+            <div class="rules-card">
+                <h3>Anubis</h3>
+                <p>May bark but usually sticks close to you.</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>WARNING:</strong> If let loose, they'll double team any dog! They're friendly but way too rough.</p>
+            </div>
+            
+            <div class="tip-box">
+                <p>Always keep the e-collar remote close. Use only the beep function - they shouldn't need the shock.</p>
+            </div>
+        </section>
+
+        <!-- Bedtime Rules Section -->
+        <section id="bedtime" class="content-section">
+            <h2>Bedtime Rules</h2>
+            
+            <div class="rules-card">
+                <h3>🐶 For the Dogs</h3>
+                <p>They sleep in the kennel with door closed.</p>
+                <div class="warning-box">
+                    <p><strong>IMPORTANT:</strong> Remove harnesses before kenneling! It's uncomfortable for sleeping and they'll try to chew each other out of them.</p>
+                </div>
+                <p>No dogs allowed in the bedroom... BUT:</p>
+                <ul>
+                    <li>Anubis = great cuddler</li>
+                    <li>Aries = foot snuggler with gas (your call - you've been warned!)</li>
+                </ul>
+            </div>
+            
+            <div class="rules-card">
+                <h3>🐈 For Baddie</h3>
+                <p>At night: shut her in her room (guest room)</p>
+            </div>
+        </section>
+
+        <!-- House Rules Section -->
+        <section id="house" class="content-section">
+            <h2>House Rules & Access</h2>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h3>🏢 Building Entry/Exit</h3>
+                    <p>Two codes:</p>
+                    <ul>
+                        <li>Master code: All doors except our unit</li>
+                        <li>Apartment code: S415 in Post District South</li>
+                    </ul>
+                    <div class="tip-box">
+                        <p>We're working on app access to make things easier!</p>
+                    </div>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>🅿️ Parking Info</h3>
+                    <p>Turn in where it says "Leasing"</p>
+                    <p>Enter garage marked "South"</p>
+                    <div class="tip-box">
+                        <p>We're working on guest access. If that fails, we'll send a QR code.</p>
+                        <p>Worst case: Free night parking at Traeger Grill</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rules-card">
+                <h3>🏡 General House Rules</h3>
+                <ul>
+                    <li><strong>Balcony:</strong> Dogs can chill there (Aries loves his blanky). NO bones, food, or small toys - they WILL drop onto neighbors.</li>
+                    <li><strong>Kennel:</strong> If you're gone longer than 1 hour.</li>
+                    <li><strong>Lock the door</strong> every time you leave.</li>
+                    <li><strong>Thermostat:</strong> Do whatever makes you happy.</li>
+                    <li><strong>Oven:</strong> Remove pans before preheating. No oven mitts - use a towel (good luck!).</li>
+                    <li><strong>NO dogs in Baddie's room!</strong> Anubis WILL go for her litter box buffet.</li>
+                    <li><strong>Vaping:</strong> Okay in apartment. Not in shared amenities. Only with Penelopy (smell carries).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Baddie's Care Section -->
+        <section id="baddie" class="content-section">
+            <h2>Baddie's Care Guide</h2>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h3>🏠 Living Arrangements</h3>
+                    <p>Mostly independent, lives in the guest room.</p>
+                    <p>Litter box is in the guest bathroom - keep that door open.</p>
+                    <p>At night: shut her in her room.</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <h3>🍗 Feeding</h3>
+                    <p>Food is in pantry next to the boys' food.</p>
+                    <p>Twice a day - can give larger breakfast to last the day.</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>IMPORTANT:</strong> If you yell at her, the dogs will go full SWAT team!</p>
+            </div>
+            
+            <div class="tip-box">
+                <p>She's not allowed on the bed... but she doesn't care. You can leave her loose when you're at work.</p>
+            </div>
+            
+            <div class="schedule-card">
+                <h3>🎁 Amenities Access</h3>
+                <p>Your door code gives full access to:</p>
+                <ul>
+                    <li>Gym</li>
+                    <li>Market</li>
+                    <li>Spa</li>
+                    <li>Pool</li>
+                    <li>Clubhouse</li>
+                    <li>Workspaces</li>
+                </ul>
+                <p>Most amenities on 3rd floor. Market is on 2nd floor - follow signs.</p>
+            </div>
+        </section>
+
+        <!-- Top Secret Section -->
+        <section id="secret" class="content-section">
+            <div class="secret-section">
+                <h2 style="color: white;">TOP SECRET - EYES ONLY</h2>
+                
+                <div class="rules-card">
+                    <h3>🔐 Official Cover Story</h3>
+                    <p>If anyone asks about Aries or Baddie:</p>
+                    <p style="font-size: 1.5rem; text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; margin: 1rem 0;">
+                        <em>"They're your pets."</em>
+                    </p>
+                </div>
+                
+                <div class="rules-card">
+                    <h3>ℹ️ Status Information</h3>
+                    <p>Anubis is covered as an ESA (Emotional Support Animal).</p>
+                    <p>Aries and Baddie are off the books.</p>
+                </div>
+                
+                <div class="tip-box" style="background: rgba(255,255,255,0.1); border-left: 4px solid #4caf50;">
+                    <p>This information is for authorized caregivers only. Do not share with unauthorized personnel.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>The Ultimate Guide to Surviving with Aries, Anubis & Baddie | For authorized caregivers only</p>
+        <p>Remember: Patience and consistency are key! Thank you for taking care of our furry family ❤️</p>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and sections
+                document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding section
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Scroll to top of section
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Make pet cards interactive
+        document.querySelectorAll('.pet-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Determine which section to show based on pet
+                let sectionId = '';
+                if (card.classList.contains('aries-card')) sectionId = 'commands';
+                if (card.classList.contains('anubis-card')) sectionId = 'potty';
+                if (card.classList.contains('baddie-card')) sectionId = 'baddie';
+                
+                // Update navigation
+                document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+                
+                // Find and activate the correct button
+                document.querySelector(`.nav-btn[data-section="${sectionId}"]`).classList.add('active');
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Scroll to section
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
