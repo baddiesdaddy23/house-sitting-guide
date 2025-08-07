@@ -185,6 +185,18 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+                
+        @keyframes text-glow {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(255, 255, 255, 1); }
+            100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+        }
+
+.secret-section h2 {
+    animation: text-glow 3s infinite;
+}
+
+
         h2 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
@@ -377,7 +389,8 @@
     </div>
 
     <div class="navigation">
-        <button class="nav-btn active" data-section="commands">📢 Commands</button>
+        <button class="nav-btn active" data-section="welcome">👋🏽 Start Here</button>
+        <button class="nav-btn" data-section="commands">📢 Commands</button>
         <button class="nav-btn" data-section="feeding">🍽️ Feeding</button>
         <button class="nav-btn" data-section="potty">🚽 Potty Protocol</button>
         <button class="nav-btn" data-section="walking">🦮 Walking & Leashes</button>
@@ -389,8 +402,23 @@
     </div>
 
     <div class="content-container">
+        <section id="welcome" class="content-section active">
+    <h2>Welcome, Pet Sitter!</h2>
+    <div class="rules-card" style="border-top-color: var(--aries-color);">
+        <h3>Hey Britney! ❤️</h3>
+        <p>Thank you so much for watching our chaotic crew! This guide has everything you need to know. Don't stress—they're mostly well-behaved (sometimes).</p>
+        <p><strong>The most important things to check first are:</strong></p>
+        <ul>
+            <li><a href="#" onclick="document.querySelector('[data-section=feeding]').click(); return false;">🍽️ Feeding Schedule</a></li>
+            <li><a href="#" onclick="document.querySelector('[data-section=potty]').click(); return false;">🚽 Potty Protocol</a></li>
+            <li><a href="#" onclick="document.querySelector('[data-section=house]').click(); return false;">🏠 House Rules</a></li>
+        </ul>
+        <p>And when in doubt, just give them cuddles!</p>
+    </div>
+</section>
+
         <!-- Commands Section -->
-        <section id="commands" class="content-section active">
+        <section id="commands" class="content-section">
             <h2>Dog Commands</h2>
             <p>Pro tip: Say their name before the command for best results ("Aries, come"). Snapping your fingers when giving commands helps get their attention.</p>
             
